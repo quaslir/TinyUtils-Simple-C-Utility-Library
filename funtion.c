@@ -111,24 +111,3 @@ void remove_negatives(int **arr, int *size) {
         return;
     }
 }
-int main() {
-char string[300];
-char temp[300];
-const int size = count_letters(string);
-do {
-printf("Enter a sentence (or whitespace to stop): ");
-read_string(string, 300);
-int count_s = count_words(string);
-int count_l = count_letters(string);
-int count_d = count_digits(string);
-int count_upper = count_uppercase(string);
-int count_lower = count_lowercase(string);
-printf("Words: %d\n", count_s);
-printf("Letters: %d\n", count_l);
-printf("Digits: %d\n", count_d);
-printf("Uppercase: %d\n", count_upper);
-printf("Lowercase: %d\n", count_lower);
-printf("The longest word: %s\n", temp);
-}while(contains_only_whitespace(string) == 0);
-    return 0;
-}
