@@ -97,6 +97,12 @@ void reverse_array(int *arr, int size);
  */
 void remove_negatives(int **arr, int *size);
 
+/**
+ * @brief Print an 8-bit unsigned value in binary.
+ * @param value  Byte (0..255) to print.
+ * @param group4 If non-zero, insert spaces every 4 bits (e.g., "0101 1010").
+ */
+void print_u8_binary(unsigned char value, int group4);
 #ifdef __cplusplus
 }
 #endif

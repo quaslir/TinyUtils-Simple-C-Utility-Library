@@ -111,3 +111,18 @@ void remove_negatives(int **arr, int *size) {
         return;
     }
 }
+int* print_u8_binary(int number) {
+int *binary_numbers = malloc(8 * sizeof(int));
+int bits = 128;
+for(int i =0; i < 8; i++) {
+    if(number & bits) {
+        binary_numbers[i] = 1;
+        bits = bits / 2;
+    }
+    else {
+        binary_numbers[i] = 0;
+        bits = bits / 2;
+    }
+}
+return binary_numbers;
+}
