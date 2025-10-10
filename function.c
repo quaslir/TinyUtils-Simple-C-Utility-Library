@@ -126,3 +126,14 @@ for(int i =0; i < 8; i++) {
 }
 return binary_numbers;
 }
+
+int* str_to_bits(const char *string) {
+    int* array_result = malloc(8 * strlen(string) * sizeof(int));
+    int i = 0;
+    for(const char *p = string; *p !='\0'; p++) {
+       for(int x = 7; x >= 0; x--) {
+        array_result[i++] = (*p >> x) & 1;
+       }
+    }
+    return array_result;
+}

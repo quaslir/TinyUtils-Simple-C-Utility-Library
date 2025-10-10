@@ -103,6 +103,21 @@ void remove_negatives(int **arr, int *size);
  * @param group4 If non-zero, insert spaces every 4 bits (e.g., "0101 1010").
  */
 void print_u8_binary(unsigned char value, int group4);
+
+/**
+ * @brief Convert a null-terminated byte string to a newly allocated flat array of bits (MSB → LSB).
+ *
+ * Each input byte yields 8 integers (0/1), most-significant-bit first.
+ * Example: "A" (0x41) → {0,1,0,0,0,0,0,1}.
+ *
+ * @param s  Null-terminated input string (must not be NULL).
+ * @return   Pointer to an int array of length 8 * strlen(s) on success,
+ *           or NULL if allocation fails or s is NULL.
+ *
+ * @warning  Caller must compute output length as 8 * strlen(s) and free() the result.
+ * @note     Bits are taken per byte; UTF-8 is treated as raw bytes. Use (unsigned char) for shifts.
+ */
+int *str_to_bits(const char *s);
 #ifdef __cplusplus
 }
 #endif
