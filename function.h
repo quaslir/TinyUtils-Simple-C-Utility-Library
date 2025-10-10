@@ -118,6 +118,33 @@ void print_u8_binary(unsigned char value, int group4);
  * @note     Bits are taken per byte; UTF-8 is treated as raw bytes. Use (unsigned char) for shifts.
  */
 int *str_to_bits(const char *s);
+
+/**
+ * @brief Create a new array that contains all elements of `nums` except those equal to `val`.
+ *
+ * This function scans the input array, counts elements not equal to `val`,
+ * allocates a new int array of that size, and copies the remaining elements.
+ * The original array is not modified.
+ *
+ * @param nums      Pointer to the first element of the input array.
+ * @param numsSize  Number of elements in the input array `nums`.
+ * @param val       Value to remove (all occurrences are excluded from the result).
+ *
+ * @return Pointer to a newly allocated array containing the filtered elements.
+ *         The caller owns this memory and must free() it. Returns NULL if
+ *         memory allocation fails or if numsSize is negative.
+ *
+ * @note This signature does NOT report the new length. You must track it yourself
+ *       (e.g., by re-counting after the call or by changing the API to include an out-size).
+ * @complexity O(numsSize) time, O(k) extra space where k is the number of kept elements.
+ */
+int *removeElement(int *nums, int numsSize, int val);
+
+
+
+
+
+
 #ifdef __cplusplus
 }
 #endif

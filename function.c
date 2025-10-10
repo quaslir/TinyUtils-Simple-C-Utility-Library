@@ -137,3 +137,18 @@ int* str_to_bits(const char *string) {
     }
     return array_result;
 }
+int *removeElement(int* nums, int numsSize, int val) {
+    int size_new_array = 0;
+    for(int *p = nums; p < numsSize + nums; p++) {
+        if(*p != val)   size_new_array++;
+    }
+    int *new_array = malloc(size_new_array * sizeof(int));
+    int j = 0;
+    for(int *p = nums; p < numsSize + nums; p++) {
+        if(*p != val)   {
+            new_array[j] = *p;
+            j++;
+        }
+    }
+    return new_array;
+}
