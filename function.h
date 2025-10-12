@@ -157,6 +157,25 @@ int *removeElement(int *nums, int numsSize, int val);
  */
 int *merge_arrays(const int *a, int size_a, const int *b, int size_b);
 
+/**
+ * @brief Build a newly-allocated string containing only the vowels from the input.
+ *
+ * Scans the null-terminated input string and copies all ASCII vowels
+ * ('a','e','i','o','u' and their uppercase variants) into a new
+ * null-terminated buffer. The caller owns the returned buffer and must free it
+ * with free(). If @p out_len is not NULL, it will receive the number of
+ * vowels written (excluding the terminating '\0').
+ *
+ * @param string   Null-terminated input string (not modified).
+ * @param size     Size of array.
+ * @return char*   Pointer to a newly-allocated null-terminated string with
+ *                 only vowels, or NULL on allocation failure or if @p string is NULL.
+ *
+ * @note Time complexity: O(n). Space complexity: O(k), where k is the number
+ *       of vowels in @p string (+1 for the terminator).
+ * @warning The caller must free the returned pointer with free().
+ */
+char *vowels_string(const char *string, int size);
 
 #ifdef __cplusplus
 }

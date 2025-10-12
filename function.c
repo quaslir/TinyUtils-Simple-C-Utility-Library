@@ -165,3 +165,27 @@ int *merge_arrays(const int *a, int size_a, const int *b, int size_b) {
     }
     return new_array;
 }
+char *vowels_string(char *string, int size) {
+    int count = 0;
+    char vowels[] = {'a','e','o', 'i', 'u'};
+    size_t size_vowels = strlen(vowels);
+    for(char *p = string; *p != '\0'; p++) {
+        for(int i = 0; vowels[i] != '\0'; i++) {
+            if(*p == vowels[i]) {
+            count++;
+            }
+        }
+    }
+    char *new_array = malloc(count * sizeof(char));
+    char *a = new_array;
+    int j = 0;
+    for(char *p = string; *p != '\0'; p++) {
+        for(int i = 0; vowels[i] != '\0'; i++) {
+            if(*p == vowels[i]) {
+            new_array[j] = *p;
+            j++;
+            }
+        }
+    }
+    return new_array;
+}
