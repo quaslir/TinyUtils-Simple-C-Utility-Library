@@ -152,3 +152,16 @@ int *removeElement(int* nums, int numsSize, int val) {
     }
     return new_array;
 }
+int *merge_arrays(const int *a, int size_a, const int *b, int size_b) {
+    int *new_array = malloc((size_a + size_b) * sizeof(int));
+    int *p = new_array;
+    for(const int *i = a; i < size_a + a;i++) {
+        *p = *i;
+        p++;
+    }
+    for(const int *i = b; i < size_b + b; i++) {
+        *p= *i;
+        p++;
+    }
+    return new_array;
+}

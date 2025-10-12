@@ -140,9 +140,22 @@ int *str_to_bits(const char *s);
  */
 int *removeElement(int *nums, int numsSize, int val);
 
-
-
-
+/**
+ * @brief Merges two integer arrays into a single new array.
+ *
+ * This function allocates a new block of memory large enough to contain
+ * all elements from both input arrays `a` and `b`, and copies the elements
+ * of `a` followed by the elements of `b` into that new array.
+ * The caller is responsible for freeing the returned pointer using `free()`.
+ *
+ * @param a Pointer to the first input array.
+ * @param size_a The number of elements in the first array.
+ * @param b Pointer to the second input array.
+ * @param size_b The number of elements in the second array.
+ * @return Pointer to the newly allocated merged array containing all elements
+ *         from both `a` and `b`. Returns `NULL` if memory allocation fails.
+ */
+int *merge_arrays(const int *a, int size_a, const int *b, int size_b);
 
 
 #ifdef __cplusplus
