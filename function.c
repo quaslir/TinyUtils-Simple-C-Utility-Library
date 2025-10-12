@@ -189,3 +189,14 @@ char *vowels_string(char *string, int size) {
     }
     return new_array;
 }
+char *word_remover(char *string, char *word) {
+    if(!string || !word || word[0] == '\0') return string;
+    size_t wl = strlen(word);
+    char *scan = string;
+    char *hit;
+    while( (hit = strstr(scan, word)) != NULL) {
+        memmove(hit, hit + wl, strlen(hit + wl) + 1);
+        scan = hit;
+    }
+    return string;
+}

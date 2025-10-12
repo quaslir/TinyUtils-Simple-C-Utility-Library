@@ -177,6 +177,31 @@ int *merge_arrays(const int *a, int size_a, const int *b, int size_b);
  */
 char *vowels_string(const char *string, int size);
 
+/**
+ * @brief Remove all occurrences of a substring from a string in place.
+ *
+ * Scans the null-terminated @p string and removes every (case-sensitive)
+ * occurrence of @p word by shifting the remainder of the buffer left.
+ * The operation is performed in place; no new memory is allocated.
+ *
+ * @param string  Mutable, null-terminated input buffer to modify.
+ *                 If NULL, the function does nothing and returns NULL.
+ * @param word    Null-terminated substring to remove.
+ *                 If NULL or empty (""), the function makes no changes.
+ *
+ * @return char*  The same pointer as @p string (for chaining), or NULL if @p string is NULL.
+ *
+ * @note Overlapping cases are handled by continuing the search from the
+ *       removal point (e.g., "aaaa" with "aa" becomes "").
+ * @note This function is case-sensitive and does not enforce word boundaries.
+ * @warning The caller must ensure @p string points to a writable buffer.
+ *
+ * @complexity Time: O(n * k) in the worst case (due to repeated strstr),
+ *             Space: O(1) extra.
+ */
+char *word_remover(char *string, char *word);
+
+
 #ifdef __cplusplus
 }
 #endif
