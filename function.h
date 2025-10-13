@@ -201,6 +201,43 @@ char *vowels_string(const char *string, int size);
  */
 char *word_remover(char *string, char *word);
 
+/**
+ * @brief Bubble-sort an array of fixed-size strings by length (ascending).
+ *
+ * @param strings [in,out] strings[size][100]; each element must be null-terminated.
+ * @param size    Number of strings.
+ * @return Number of swaps performed; 0 if size < 2.
+ *
+ * @details Stable with respect to equal lengths.
+ * @complexity O(n^2 * L), where L is max string length (uses strlen).
+ */
+int bubble_sort_strings(char strings[][100], size_t size);
+
+/**
+ * @brief Return the index of the string with the fewest vowels in [start, size).
+ *
+ * @param strings Input array: strings[size][100]; elements are null-terminated.
+ * @param start   Start index (inclusive).
+ * @param size    Total number of strings.
+ * @return Index of the leftmost string with minimal vowel count in the range.
+ *
+ * @pre  start < size.
+ * @complexity O((size - start) * L).
+ */
+size_t find_string_with_fewest_vowels(const char strings[][100], size_t start, size_t size);
+
+/**
+ * @brief Selection-sort strings by vowel count (ascending).
+ *
+ * @param strings [in,out] strings[size][100]; each element null-terminated.
+ * @param size    Number of strings.
+ * @return Number of swap operations performed by the implementation.
+ *
+ * @note Your current code swaps on every outer pass, so the return value equals size.
+ *       If you want to count only real swaps, increment the counter only when min_index != i.
+ * @complexity O(n^2 * L). Not stable.
+ */
+int selection_sort_strings(char strings[][100], size_t size);
 
 #ifdef __cplusplus
 }

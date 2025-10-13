@@ -200,3 +200,29 @@ char *word_remover(char *string, char *word) {
     }
     return string;
 }
+int bubble_sort_strings(char strings[][100], size_t size) {
+    int count = 0;
+    for(int i = 0; i < size - 1; i++) {
+        for(int j = 0; j < size - i - 1; j++) {
+        strlen(strings[j]) > strlen(strings[j + 1]) ? swap_strings(strings[j], strings[j+1]), count++ : 0;
+    }
+}
+    return count;
+}
+size_t find_string_with_fewest_vowels(const char strings[][100], size_t start, size_t size) {
+    int min_vowels = count_vowels(strings[start]);
+    size_t index = start;
+    for(int i = start; i < size; i++) {
+           int count = count_vowels(strings[i]);
+           count < min_vowels ? min_vowels = count, index = i : 0;
+    }
+    return index;
+}
+int selection_sort_strings(char strings[][100], size_t size) {
+    int count = 0;
+    for(int i = 0; i < size; i++) {
+            swap_strings(strings[i], strings[find_string_with_fewest_vowels(strings, i, size)]);
+            count++;
+    }
+    return count;
+}
