@@ -6,14 +6,13 @@ extern "C" {
 #endif
 
 #include <stdbool.h>
-
+#include <stdio.h>
 /**
  * @brief Checks if a string contains only whitespace characters.
  * @param s Null-terminated string to check.
  * @return true if the string contains only whitespace; false otherwise.
  */
 bool contains_only_whitespace(const char s[]);
-
 /**
  * @brief Counts the number of words (alphanumeric sequences) in a string.
  * @param s Null-terminated string.
@@ -238,6 +237,22 @@ size_t find_string_with_fewest_vowels(const char strings[][100], size_t start, s
  * @complexity O(n^2 * L). Not stable.
  */
 int selection_sort_strings(char strings[][100], size_t size);
+
+/**
+ * @brief Print an integer array as comma-separated values, preceded by a newline.
+ *
+ * @param array Read-only pointer to the first element to print.
+ * @param size  Number of elements in @p array to print.
+ *
+ * @details Outputs a leading '\n', then prints elements as "a,b,c" (no trailing comma).
+ *          Does not append a newline at the end of the list.
+ *          Example output for {1,2,3}: "\n1,2,3"
+ *
+ * @pre array != NULL; size >= 0.
+ * @complexity O(size).
+ */
+void print_numbers(const int array[], int size);
+
 
 #ifdef __cplusplus
 }

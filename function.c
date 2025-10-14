@@ -226,3 +226,11 @@ int selection_sort_strings(char strings[][100], size_t size) {
     }
     return count;
 }
+void print_numbers(const int array[], int size) {
+    int printed = 0;
+    printf("\n");
+    for(int i = 0; i < size; i++) {
+        printf("%s%d", printed ? "," : "", array[i]);
+        printed++;
+    }
+}
