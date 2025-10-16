@@ -234,3 +234,14 @@ void print_numbers(const int array[], int size) {
         printed++;
     }
 }
+ int *minmax(int numbers[], int size) {
+    int *min_max = malloc(2 * sizeof(int));
+    int *min = numbers, *max = numbers;
+    min_max[0] = numbers[0];
+    min_max[1] = numbers[0];
+    for(int *p = numbers; p < size + numbers; p++) {
+        if(*p < *min) {min = p;min_max[0] = *min;}
+        if(*p > *max) {max = p;min_max[1] = *max;}
+    }
+    return min_max;
+ }

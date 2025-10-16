@@ -253,6 +253,23 @@ int selection_sort_strings(char strings[][100], size_t size);
  */
 void print_numbers(const int array[], int size);
 
+/**
+ * @brief Returns the minimum and maximum values found in an integer array.
+ *
+ * Scans the array once (O(n)) and allocates a 2-element int buffer on the heap
+ * containing {min, max} in that order.
+ *
+ * @param numbers  Pointer to the first element of the input array.
+ *                 Must not be NULL when @p size > 0.
+ * @param size     Number of elements in the array.
+ *
+ * @return Pointer to a newly allocated array of two ints: result[0] = min,
+ *         result[1] = max. Returns NULL if @p numbers is NULL or @p size == 0.
+ *
+ * @note  The caller owns the returned memory and must release it with free().
+ * @note  Works with any int values (including negatives and zero).
+ */
+int *minmax(const int numbers[], size_t size);
 
 #ifdef __cplusplus
 }
