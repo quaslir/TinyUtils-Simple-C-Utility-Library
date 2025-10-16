@@ -245,3 +245,32 @@ void print_numbers(const int array[], int size) {
     }
     return min_max;
  }
+ void reverse_words(char string[], int size) {
+    bool word_started = false;
+    char *start = string;
+    int i = 0;
+    for(; string[i] !='\0';i++) {
+        if(!isspace(string[i]) && !word_started) {word_started = true; start = string + i;}
+        if(isspace(string[i]) && word_started) {
+            char *end = &string[i-1];
+             while(start < end) {
+                char temp = *start;
+                *start = *end;
+                *end = temp;
+                start++;
+                end--;
+             }
+             word_started = false;
+    }
+}
+    if(word_started) {
+        char *end = &string[i-1];
+        while(start < end) {
+        char temp = *start;
+                *start = *end;
+                *end = temp;
+                start++;
+                end--;
+    }
+}
+}

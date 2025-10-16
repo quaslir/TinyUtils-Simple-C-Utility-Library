@@ -271,6 +271,31 @@ void print_numbers(const int array[], int size);
  */
 int *minmax(const int numbers[], size_t size);
 
+/**
+ * @brief In-place reversal of each word in a C string.
+ *
+ * Reverses every maximal sequence of non-whitespace characters in-place,
+ * preserving the original whitespace characters and their positions.
+ * Whitespace is determined via isspace(3). The input string must be
+ * NUL-terminated and mutable.
+ *
+ * @param string  Pointer to a writable, NUL-terminated char buffer.
+ * @param size    (Unused) Reserved for future use; can be 0. The function
+ *                relies on the terminating '\0' rather than this value.
+ *
+ * @return void
+ *
+ * @note Behavior is undefined if @p string is NULL or points to read-only memory.
+ * @note Uses isspace((unsigned char)ch); make sure to include <ctype.h>.
+ *
+ * @example
+ *   char s[] = "hello  world\tC";
+ *   reverse_words(s, 0);
+ *   // s becomes: "olleh  dlrow\tC"
+ */
+void reverse_words(char string[], int size);
+
+
 #ifdef __cplusplus
 }
 #endif
