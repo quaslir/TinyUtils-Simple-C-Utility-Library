@@ -296,6 +296,26 @@ int *minmax(const int numbers[], size_t size);
 void reverse_words(char string[], int size);
 
 
+/**
+ * @brief Check for an equal pair among mirrored elements of an array.
+ *
+ * @details The function compares elements symmetrically from both ends:
+ *          a[0] with a[n-1], a[1] with a[n-2], and so on, moving inward.
+ *          It does NOT test all pairs, so it may return false even if
+ *          duplicates exist elsewhere in the array.
+ *
+ * @param array Pointer to the first element of the integer array (must not be NULL).
+ * @param size  Number of elements in the array (>= 0).
+ *
+ * @return true if any checked mirrored pair is equal; false otherwise.
+ *
+ * @pre If size < 2, the function always returns false.
+ * @complexity O(n) time, O(1) extra space.
+ * @warning For detecting any duplicate anywhere, use a different method
+ *          (e.g., sort + linear scan or a hash set).
+ */
+bool duplicate(int array[], int size);
+
 #ifdef __cplusplus
 }
 #endif

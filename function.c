@@ -274,3 +274,14 @@ void print_numbers(const int array[], int size) {
     }
 }
 }
+bool duplicate(int array[], int size) {
+    int *left = array;
+    int *right = array + size - 1;
+    while(left != array + size - 1 && right != array) {
+    if(*left == *right) return true;
+    left++;
+    right--;
+
+}
+return false;
+}
