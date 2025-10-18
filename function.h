@@ -352,6 +352,30 @@ char *get_middle(const char *inp);
  */
 void space_remover(char string[]);
 
+/**
+ * @brief Decodes a NUL-terminated string in-place using the Atbash cipher.
+ *
+ * For each alphabetic character, maps it to its mirror within the alphabet
+ * (a<->z, b<->y, ... and A<->Z). Whitespace characters are left unchanged.
+ * All other non-alphabetic characters are also left unchanged.
+ *
+ * @param string Pointer to a mutable NUL-terminated character buffer.
+ *               Must not be NULL.
+ */
+void decode(char *string);
+
+/**
+ * @brief Computes the sum of all decimal digits present in a string.
+ *
+ * Scans the NUL-terminated string and adds the numeric value of each digit
+ * ('0'..'9') to the running total. Non-digit characters are ignored.
+ *
+ * @param string Pointer to a NUL-terminated character buffer. Not modified.
+ *               Must not be NULL.
+ * @return The sum of all digits found in the string (0..9 per digit).
+ */
+int sumstr(const char *string);
+
 #ifdef __cplusplus
 }
 #endif

@@ -312,3 +312,19 @@ void space_remover(char string[]) {
     }
     string[pos] = '\0';
 }
+void decode(char string[]) {
+    for(int i = 0; string[i] !='\0'; i++) {
+        if(!isspace(string[i])) {
+        string[i] = 'a' + 'z' - string[i];
+        }
+    }
+}
+int sumstr(char string[]) {
+    int sum = 0;
+    for(int i = 0; string[i] != '\0'; i++) {
+        if(isdigit(string[i])) {
+            sum += string[i] -'a' + '1';
+        }
+    }
+    return sum;
+}
