@@ -316,6 +316,42 @@ void reverse_words(char string[], int size);
  */
 bool duplicate(int array[], int size);
 
+/**
+ * @brief Extract the middle character(s) of a C string.
+ *
+ * For an odd-length string returns a newly allocated string of length 1
+ * containing the single middle character. For an even-length string returns
+ * a newly allocated string of length 2 containing the two middle characters.
+ *
+ * @param[in] inp  Non-NULL pointer to a NUL-terminated string.
+ * @return char*   On success, heap-allocated NUL-terminated string that the caller must free.
+ *                 If @p inp has length 0, returns NULL (per current implementation).
+ *                 If memory allocation fails, returns NULL.
+ *
+ * @pre  @p inp must not be NULL.
+ * @note The caller owns the returned buffer and must call free() on it.
+ * @complexity O(n) time, O(1) extra space (excluding the returned buffer),
+ *             where n = strlen(inp).
+ */
+char *get_middle(const char *inp);
+
+/**
+ * @brief Remove all whitespace characters from a string in-place.
+ *
+ * Copies only non-whitespace characters (as defined by isspace) forward,
+ * preserving their order. The result is NUL-terminated.
+ *
+ * @param[in,out] string  Non-NULL pointer to a modifiable NUL-terminated buffer.
+ *                        The buffer is modified in-place.
+ *
+ * @return void
+ *
+ * @pre  @p string must not be NULL and must be writable.
+ * @post The string contains no spaces, tabs, newlines, etc.
+ * @complexity O(n) time, O(1) extra space, where n = original strlen(string).
+ */
+void space_remover(char string[]);
+
 #ifdef __cplusplus
 }
 #endif

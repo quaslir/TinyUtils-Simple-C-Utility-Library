@@ -285,3 +285,30 @@ bool duplicate(int array[], int size) {
 }
 return false;
 }
+char *get_middle(const char *inp) {
+    char *s = NULL;
+    size_t length = strlen(inp);
+    if(length == 0) return s;
+    else if(length % 2 == 0) {
+        s = malloc(3 * sizeof(char));
+        s[0] = inp[length / 2 - 1];
+        s[1] = inp[length / 2];
+        s[2] = '\0';
+    }
+    else {
+        s = malloc(2 * sizeof(char));
+        s[0] = inp[(length) / 2];
+        s[1] = '\0';
+    }
+    return s;
+    }
+void space_remover(char string[]) {
+    int pos = 0;
+    for(int i = 0; string[i] !='\0'; i++) {
+        if(!isspace(string[i])) {
+            string[pos] = string[i];
+            pos++;
+        }
+    }
+    string[pos] = '\0';
+}
