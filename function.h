@@ -457,6 +457,45 @@ int array_to_integer(int *numbers, int size);
  */
 long long the_biggest_number(long long n);
 
+/** Singly linked list node. */
+typedef struct Node{
+    int v;               /**< Stored value. */
+    struct Node *next;   /**< Pointer to the next node or NULL. */
+} Node;
+
+/**
+ * @brief Push a new value to the front of the singly linked list.
+ *
+ * Allocates a new node with value @p x and makes it the new head.
+ * If memory allocation fails, returns the original @p head unchanged.
+ *
+ * @param head Current head pointer (may be NULL for an empty list).
+ * @param x    Value to insert.
+ * @return Pointer to the new head (either the newly created node, or the original head on failure).
+ */
+Node *push(Node *head, int x);
+
+/**
+ * @brief Print all node values in the list to stdout.
+ *
+ * Iterates from @p head to the end and prints each value using the "%2d" format.
+ * Note: this function does not print separators or a trailing newline.
+ *
+ * @param head Head of the list (may be NULL for an empty list).
+ */
+void print_list(const Node *head);
+
+/**
+ * @brief Free all nodes in the list.
+ *
+ * Iteratively frees every node reachable from @p head. After the call,
+ * any previously held pointer to those nodes becomes invalid.
+ * Note: this function does not set the caller's head to NULL.
+ *
+ * @param head Head of the list (may be NULL). Ownership of nodes is released.
+ */
+void freeList(Node *head);
+
 #ifdef __cplusplus
 }
 #endif

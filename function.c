@@ -387,3 +387,28 @@ long long the_biggest_number(long long n) {
     return n;
 
 }
+typedef struct Node{
+    int v;
+    struct Node *next;
+}Node;
+Node *push(Node *head, int x) {
+    Node *n = malloc(sizeof(*n));
+    if(!n) return head;
+    n->v = x;
+    n->next = head;
+    return n;
+}
+void print_list(Node *head) {
+    for(Node *p = head; p; p = p->next) {
+        printf("%2d", p->v);
+
+    }
+
+}
+void freeList(Node *head) {
+    while(head) {
+        Node *t = head->next;
+        free(head);
+        head = t;
+    }
+}
