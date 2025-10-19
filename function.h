@@ -376,6 +376,82 @@ void decode(char *string);
  */
 int sumstr(const char *string);
 
+/**
+ * @brief Remove the first and last character from a string in place.
+ *
+ * Copies characters from index 1..(size-2) to the front and writes a
+ * terminating NUL byte at the end.
+ *
+ * @param string Mutable character buffer to edit (must have at least @p size bytes).
+ * @param size   Logical length of the input (number of characters to consider).
+ *               If @p size < 2, the result becomes an empty string.
+ */
+void first_and_last_character_remover(char string[], size_t size);
+
+/**
+ * @brief Round an integer up to the nearest multiple of 5.
+ *
+ * For positive numbers behaves like ceil(n/5.0)*5; for negatives still rounds
+ * toward +infinity (e.g., -1 -> 0, -6 -> -5).
+ *
+ * @param number Input integer.
+ * @return Rounded value that is a multiple of 5 and >= number.
+ */
+int round_up_5(int number);
+
+/**
+ * @brief Count decimal digits in a non-negative integer.
+ *
+ * @param number Non-negative integer to inspect.
+ * @return Number of decimal digits. Note: returns 0 for input 0 in this
+ *         implementation; many APIs return 1 for 0. Define the behavior you want.
+ */
+int size_array(int number);
+
+/**
+ * @brief Split a non-negative integer into its decimal digits.
+ *
+ * Resulting array contains digits in reading order (most significant first).
+ * Caller owns the returned memory and must free it.
+ *
+ * @param number Non-negative integer to split.
+ * @return Pointer to a heap-allocated array of digits (int 0..9), or NULL on allocation failure.
+ *         The length of the array is size_array(number).
+ */
+int *numbers_divider(int number);
+
+/**
+ * @brief qsort-compatible comparator for ascending order of ints.
+ *
+ * @param a Pointer to first int element.
+ * @param b Pointer to second int element.
+ * @return <0 if *a < *b, 0 if equal, >0 if *a > *b.
+ */
+int comp(const void *a, const void *b);
+
+/**
+ * @brief Assemble an integer from an array of decimal digits.
+ *
+ * Interprets @p numbers as digits in reading order (most significant first).
+ * Behavior is undefined if digits are outside 0..9 or if overflow occurs.
+ *
+ * @param numbers Array of digits (each 0..9).
+ * @param size    Number of elements in @p numbers.
+ * @return The assembled integer value.
+ */
+int array_to_integer(int *numbers, int size);
+
+/**
+ * @brief Compute the next greater number using the same digits as @p n.
+ *
+ * If no greater permutation exists (digits are in non-increasing order),
+ * returns -1. Uses 64-bit range for the result.
+ *
+ * @param n Input number (non-negative expected).
+ * @return Next greater permutation of digits, or -1 if impossible.
+ */
+long long next_bigger_number(long long n);
+
 #ifdef __cplusplus
 }
 #endif

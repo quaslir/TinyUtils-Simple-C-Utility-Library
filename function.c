@@ -328,3 +328,62 @@ int sumstr(char string[]) {
     }
     return sum;
 }
+void first_and_last_character_remover(char string[], size_t size) {
+    int pos = 0;
+    for(int i = 0; i < size; i++) {
+        if(i != 0 && i != size - 1) {
+            string[pos] = string[i];
+            pos++;
+        }
+    }
+    string[pos] = '\0';
+}
+int round_up_5(int number) {
+    if(number < 0 && number % 5 != 0) {
+        return number + (5 - (5 - (-number % 5)));
+    }
+   return number % 5 == 0 ? number : number + (5 - number % 5);
+}
+int size_array(int number) {
+unsigned int size = 0;
+    while(number > 0) {
+        number /= 10;
+        size++;
+    }
+    return size;
+}
+int *numbers_divider(int number) {
+        int size =size_array(number);
+    int *numbers = malloc(size * sizeof(int));
+    int *p =numbers + size -1;
+    while(number > 0) {
+        *p = number % 10;
+        number /= 10;
+        p--;
+    }
+    return numbers;
+}
+int comp(const void *a, const void *b) {
+    int x = *(int*)a, y = *(int*)b;
+    return (x<y) - (x>y);
+}
+int array_to_integer(int *numbers, int size) {
+    int number = 0;
+    int square = 1;
+    for(int *p = numbers + size - 1; p >= numbers; p--) {
+        number += square * *p;
+        square *= 10;
+    }
+    
+    return number;
+}
+long long next_bigger_number(long long n) {
+    int *numbers = numbers_divider(n);
+    int size = size_array(n);
+    qsort(numbers, size, sizeof(numbers[0]), comp);
+    long long num = n;
+    n = array_to_integer(numbers, size);
+    if(num == n) return -1;
+    return n;
+
+}
