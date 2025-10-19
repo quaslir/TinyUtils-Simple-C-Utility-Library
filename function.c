@@ -377,7 +377,7 @@ int array_to_integer(int *numbers, int size) {
     
     return number;
 }
-long long next_bigger_number(long long n) {
+long long the_biggest_number(long long n) {
     int *numbers = numbers_divider(n);
     int size = size_array(n);
     qsort(numbers, size, sizeof(numbers[0]), comp);

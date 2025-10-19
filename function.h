@@ -442,15 +442,20 @@ int comp(const void *a, const void *b);
 int array_to_integer(int *numbers, int size);
 
 /**
- * @brief Compute the next greater number using the same digits as @p n.
+ * @brief Return the largest integer obtainable by permuting the decimal digits of @p n.
  *
- * If no greater permutation exists (digits are in non-increasing order),
- * returns -1. Uses 64-bit range for the result.
+ * Forms the maximum permutation of @p n's digits (sorted in non-increasing order).
+ * If @p n is already maximal, the function returns @p n unchanged.
  *
- * @param n Input number (non-negative expected).
- * @return Next greater permutation of digits, or -1 if impossible.
+ * @param n Non-negative integer whose digits are to be rearranged.
+ * @return The largest permutation as a long long.
+ *         If @p n < 0 or the result would overflow long long, the behavior is implementation-defined
+ *         (recommend returning -1 or handling via errno in your implementation).
+ *
+ * @note This routine treats the input as a multiset of decimal digits; leading zeros,
+ *       if any, are naturally moved to the end (e.g., 1002 -> 2100).
  */
-long long next_bigger_number(long long n);
+long long the_biggest_number(long long n);
 
 #ifdef __cplusplus
 }
