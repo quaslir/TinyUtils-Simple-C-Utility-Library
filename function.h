@@ -495,7 +495,62 @@ void print_list(const Node *head);
  * @param head Head of the list (may be NULL). Ownership of nodes is released.
  */
 void freeList(Node *head);
+/**
+ * @brief Check whether the array is monotonic (nondecreasing or nonincreasing).
+ *
+ * The array is considered monotonic if it is entirely nondecreasing
+ * (a[i] <= a[i+1] for all i) or entirely nonincreasing
+ * (a[i] >= a[i+1] for all i).
+ *
+ * @param nums      Pointer to the first element of the array.
+ * @param numsSize  Number of elements in the array (may be 0).
+ * @return true if the array is monotonic, false otherwise.
+ *
+ * @complexity O(n) time, O(1) extra space.
+ */
+bool isMonotonic(int* nums, int numsSize);
 
+/**
+ * @brief Return a new array with all even numbers first, then all odd numbers.
+ *
+ * The relative order among evens and among odds is not guaranteed to be stable.
+ * The function allocates a new array of size @p numsSize, copies/reorders the
+ * elements, writes the size to @p returnSize, and returns the pointer.
+ *
+ * @param nums         Pointer to the source array.
+ * @param numsSize     Number of elements in @p nums.
+ * @param returnSize   [out] On success, set to @p numsSize (may be NULL).
+ * @return Pointer to a newly allocated int array of length @p numsSize,
+ *         or NULL on allocation failure.
+ *
+ * @note Caller owns the returned buffer and must free() it.
+ * @complexity O(n^2) time in the provided bubble-sort approach, O(1) extra space.
+ *             (Can be reduced to O(n) with a two-pass or two-pointer method.)
+ */
+int* sortArrayByParity(int* nums, int numsSize, int* returnSize);
+
+/**
+ * @brief Determine whether the multiset can be partitioned into pairs of equal values.
+ *
+ * The function sorts the array in-place and then checks adjacent pairs:
+ * (deck[0], deck[1]), (deck[2], deck[3]), ...  All pairs must be equal.
+ *
+ * @param deck      Pointer to the array of integers (will be modified by sorting).
+ * @param deckSize  Number of elements in @p deck.
+ * @return true if @p deckSize is even and the array can be fully partitioned
+ *         into pairs of identical values; false otherwise.
+ *
+ * @complexity O(n^2) time due to bubble sort, O(1) extra space.
+ * @warning The input array is modified (sorted).
+ */
+bool hasPair(int* deck, int deckSize);
+
+/**
+ * @brief Print uppercase initials (first alphanumeric char of each word).
+ * @param s NUL-terminated input string.
+ * @note Words are separated by whitespace. 
+ */
+void print_initials_upper(char *s);
 #ifdef __cplusplus
 }
 #endif

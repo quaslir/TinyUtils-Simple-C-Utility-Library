@@ -412,3 +412,64 @@ void freeList(Node *head) {
         head = t;
     }
 }
+bool isMonotonic(int* nums, int numsSize) {
+    int count1 = 0;
+    int count2 = 0;
+        for(int i = 0; i < numsSize - 1; i++) {
+            if(nums[i] >= nums[i+1]) count1++;
+        }
+        for(int i = 0; i < numsSize - 1; i++) {
+            if(nums[i] <= nums[i+1]) count2++;
+        }
+        return true ? count1 == numsSize - 1 || count2 == numsSize - 1 : false;
+}
+int* sortArrayByParity(int* nums, int numsSize, int* returnSize) {
+ int *new_array = malloc(numsSize * sizeof(int));
+ int *n = new_array;
+ for(int *p = nums; p < nums + numsSize; p++) {
+        *n = *p;
+        n++;
+    }
+    for(int i = 0; i < numsSize - 1; i++) {
+        for(int j = 0; j < numsSize - i -1; j++) {
+            if(new_array[j] % 2 != 0) {
+                int temp = new_array[j];
+                new_array[j] = new_array[j+1];
+                new_array[j+1] = temp;
+            }
+        }
+    }
+    *returnSize = numsSize;
+    return new_array;
+ }
+ bool hasPair(int* deck, int deckSize) {
+    if(deckSize % 2 != 0) return false;
+    int pairs = 0;
+    for(int i = 0; i < deckSize - 1; i++) {
+        for(int j = 0; j < deckSize - i - 1; j++) {
+            if(deck[j] > deck[j+1]) {
+                int temp = deck[j];
+                deck[j]= deck[j+1];
+                deck[j+1] = temp;
+            }
+        }
+    }
+    for(int i = 0; i < deckSize;i+=2) {
+        if(deck[i] == deck[i+1]) pairs += 2;
+    }
+    if(pairs == deckSize) return true;
+    return false;
+}
+void test(char string[]) {
+    bool word_started = isalnum(string[0]);
+    for(int i = 0; string[i];i++) {
+        if(isalnum(string[i]) && (isspace(string[i - 1]))) {
+            word_started = true;
+        }
+        if(word_started) {
+            printf("%c", toupper(string[i]));
+            word_started = false;
+        }
+        
+    }
+}
