@@ -551,6 +551,37 @@ bool hasPair(int* deck, int deckSize);
  * @note Words are separated by whitespace. 
  */
 void print_initials_upper(char *s);
+
+/**
+ * @brief Binary search for a target value in a sorted ascending integer array.
+ *
+ * @param nums      Pointer to the first element of the array (may be NULL if numsSize == 0).
+ * @param numsSize  Number of elements in the array.
+ * @param target    Value to search for.
+ * @return          Zero-based index of @p target if found; otherwise -1.
+ *
+ * @pre  The array must be sorted in non-decreasing (ascending) order.
+ * @note Works with duplicate values; returns the index of some matching element.
+ * @complexity  O(log n) time, O(1) extra space.
+ */
+int search(const int *nums, int numsSize, int target);
+
+/**
+ * @brief Add two non-negative binary integers given as null-terminated strings.
+ *
+ * @param a  Null-terminated C-string of '0' and '1' characters (no spaces, no sign).
+ * @param b  Null-terminated C-string of '0' and '1' characters (no spaces, no sign).
+ * @return   Pointer to a newly allocated null-terminated string with the binary sum,
+ *           without leading zeros (except "0"). Returns NULL on allocation failure.
+ *
+ * @effects Allocates memory with malloc(); the caller **must** free() the returned pointer.
+ * @pre     @p a and @p b are valid pointers to proper C-strings containing only '0'/'1'.
+ * @note    Inputs are not modified. Handles different lengths. Result length is at most
+ *          max(strlen(a), strlen(b)) + 1.
+ * @complexity  O(len(a) + len(b)) time, O(max(len(a), len(b))) extra space.
+ */
+char *addBinary(const char *a, const char *b);
+
 #ifdef __cplusplus
 }
 #endif

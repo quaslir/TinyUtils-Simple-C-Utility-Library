@@ -473,3 +473,67 @@ void test(char string[]) {
         
     }
 }
+int search(int* nums, int numsSize, int target) {
+    int left = 0;
+int right = numsSize -1;
+while(left <= right) {
+    int mid = left + (right - left) / 2;
+    if(nums[mid] < target) left = mid + 1;
+    else if(nums[mid] > target) right = mid - 1;
+    else return mid;
+}
+return -1;
+}
+char* addBinary(char* a, char* b) {
+    int size_a = strlen(a);
+    int size_b = strlen(b);
+    int carry = 0;
+    int maxLen = size_a > size_b ? size_a : size_b;
+    char *result = malloc((maxLen + 2) * sizeof(char));
+    int idx1 = strlen(a)-1, idx2 = strlen(b)-1;
+    
+    int i = maxLen;
+    result[i+1] = '\0';
+    while(idx1 >= 0 || idx2 >= 0 || carry) {
+        char ca = idx1 >= 0 ? a[idx1] : '0';
+        char cb = idx2 >= 0 ? b[idx2] : '0';
+        if((ca == '1' && cb == '1')) {
+            if(carry) {
+            result[i] = '1';
+            carry = 1;
+        }
+        else {
+            result[i] = '0';
+            carry = 1;
+        }
+    }
+    else if((ca == '1' && cb == '0') || (ca == '0' && cb == '1')) {
+        if(carry) {
+            result[i] = '0';
+            carry = 1;
+        }
+        else {
+            result[i] = '1';
+            carry = 0;
+        }
+    }
+    else {
+        if(carry) {
+            result[i] = '1';
+            carry = 0;
+        }
+        else {
+            result[i] = '0';
+            carry = 0;
+        }
+        
+    }
+    idx1--;
+    idx2--;
+    i--;
+    
+}
+    memmove(result, result + i + 1, maxLen + 1 - i);
+    return result;
+
+}
